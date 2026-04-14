@@ -1039,22 +1039,189 @@ h2,
 }
 
 @media (max-width: 768px) {
+    /* TYPOGRAPHY */
     .main-birthday-text {
+        font-size: 2.5rem;
+    }
+    
+    .question-text {
+        font-size: 2.2rem;
+    }
+    
+    .letter-greeting {
+        font-size: 2.8rem;
+    }
+    
+    .handwritten-letter {
+        font-size: 1.5rem;
+        padding: 3rem 1.5rem;
+    }
+    
+    .sheet-title {
         font-size: 3rem;
     }
+    
+    .modal-title {
+        font-size: 2.5rem;
+    }
 
+    /* PADDINGS & CONTAINERS */
+    .password-container, 
+    .question-container, 
+    .letter-container {
+        padding: 2.5rem 1.2rem;
+        margin: 1rem;
+        width: 100%;
+        border-radius: 30px;
+    }
+    
+    .letter-header {
+        margin-bottom: 1.5rem;
+    }
+    
+    .letter-content p {
+        font-size: 1rem;
+        line-height: 1.6;
+        margin-bottom: 1.2rem;
+    }
+
+    /* GRID LAYOUTS */
     .gift-items {
+        grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+        gap: 1rem;
+        margin: 2rem auto;
+    }
+    
+    .item-stack {
+        padding: 1.2rem;
+        border-radius: 20px;
+    }
+    
+    .item-stack div {
+        font-size: 2.2rem;
+        margin-bottom: 0.5rem;
+    }
+    
+    .item-stack p {
+        font-size: 0.85rem;
+    }
+    
+    .letters-grid {
         grid-template-columns: 1fr 1fr;
+        gap: 1rem;
+        padding: 1rem;
+    }
+    
+    .envelopes-grid {
+        grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+        gap: 1rem;
+    }
+    
+    .envelope-card {
+        padding: 1.5rem 1rem;
+    }
+    
+    .env-icon {
+        font-size: 2rem;
     }
 
     #reasons-list {
         grid-template-columns: 1fr;
+        gap: 1rem;
     }
 
-    .sheet-title {
-        font-size: 3rem;
+    /* COMPONENTS */
+    .bouquet-img {
+        width: 100%;
+        max-width: 300px;
+    }
+    
+    .spotify-img {
+        width: 250px;
+    }
+    
+    .back-btn {
+        top: 1rem;
+        left: 1rem;
+        padding: 0.5rem 0.8rem;
+        font-size: 0.85rem;
+    }
+    
+    .close-modal {
+        top: 1rem;
+        right: 1rem;
+        font-size: 2.5rem;
+    }
+    
+    .birthday-sheet {
+        padding: 3rem 1.2rem;
+    }
+    
+    .reasons-container h3 {
+        font-size: 1.4rem !important;
+        margin-bottom: 1.5rem !important;
+    }
+    
+    .star-date {
+        font-size: 1.4rem;
+    }
+    
+    .sky-description p {
+        font-size: 0.95rem;
+    }
+    
+    .sky-canvas-container {
+        height: 300px;
     }
 }
+
+@media (max-width: 480px) {
+    .main-birthday-text {
+        font-size: 2rem;
+    }
+    
+    .gift-items {
+        grid-template-columns: 1fr 1fr;
+        gap: 0.8rem;
+    }
+    
+    .letters-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .yes-btn, .next-button {
+        padding: 0.8rem 1.5rem;
+        font-size: 0.95rem;
+        width: 100%;
+    }
+    
+    .buttons-group {
+        flex-direction: column;
+        gap: 0.8rem;
+    }
+    
+    #no-btn-space {
+        display: none;
+    }
+    
+    .no-btn {
+        width: auto;
+        margin-top: 0;
+    }
+    
+    .modal-overlay {
+        padding: 0.8rem;
+    }
+    
+    .video-container {
+        padding: 1rem;
+    }
+    
+    #birthday-video {
+        max-height: 60vh;
+    }
+}
+
 
 .video-container {
     padding: 2rem;
