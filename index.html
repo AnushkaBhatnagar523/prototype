@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HAPPY BIRTHDAY KULDEEP 🎉</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="bg-vignette"></div>
+
+    <!-- PASSWORD SCREEN -->
+    <div id="password-screen">
+        <div class="password-container">
+            <div class="heart-icon">💙</div>
+            <h1 class="birthday-title" style="font-size: 2rem;">HAPPY BIRTHDAY<br>BESTFRIEND</h1>
+            <p class="subtitle">Enter the secret code to unlock your surprise</p>
+            <div class="password-group">
+                <input type="password" id="password" placeholder="The special code..." class="password-input">
+            </div>
+            <button onclick="checkPassword()" class="enter-btn">Click on me</button>
+            <p style="font-size: 0.9rem; color: var(--primary); margin-top: 1.5rem; opacity: 0.9; font-style: italic; animation: slowPulse 3s infinite;">(make sure your volume is up) 🎧</p>
+            <p id="error" class="error-msg"></p>
+        </div>
+    </div>
+
+    <!-- SLIDESHOW SCREEN -->
+    <div id="slideshow-screen" class="hidden">
+        <button onclick="goBack('slideshow-screen', 'password-screen')" class="back-btn">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="15 18 9 12 15 6"></polyline>
+            </svg>
+            Back
+        </button>
+        <img id="bg-slide" class="slide-bg" src="IMAGES/slide1.png" alt="Birthday Background">
+        <div class="slideshow-content">
+            <h1 class="main-birthday-text">happiest birthday<br>KULDEEEPPPPPPPPPPPPP</h1>
+            <button onclick="showQuestion()" class="next-button">
+                Begin the Journey
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                    <polyline points="12 5 19 12 12 19"></polyline>
+                </svg>
+            </button>
+        </div>
+    </div>
+
+    <!-- QUESTION SCREEN -->
+    <div id="question-screen" class="hidden">
+        <button onclick="goBack('question-screen', 'slideshow-screen')" class="back-btn">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="15 18 9 12 15 6"></polyline>
+            </svg>
+            Back
+        </button>
+        <div class="question-container">
+            <h1 class="question-text">Will you be my bestfriend for forever?</h1>
+            <p class="question-subtext">( soch samajh k answer dena cuz is k baad you wont be able to leave kahi bhi )
+            </p>
+            <div class="buttons-group">
+                <button onclick="showLetter()" class="yes-btn">Forever and Always ✨</button>
+                <!-- Space for button -->
+                <div id="no-btn-space" style="width: 120px; height: 50px;"></div>
+            </div>
+        </div>
+        <button id="no-btn" onmouseover="moveNoBtn()" class="no-btn">No</button>
+    </div>
+
+    <!-- LETTER SCREEN -->
+    <div id="letter-screen" class="hidden">
+        <button onclick="goBack('letter-screen', 'question-screen')" class="back-btn">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="15 18 9 12 15 6"></polyline>
+            </svg>
+            Back
+        </button>
+        <div class="letter-container">
+            <div class="letter-header">
+                <h2 class="letter-greeting">First of all once again Happy Birthday…</h2>
+            </div>
+            <div class="letter-content" id="letter-text">
+                <!-- Content will be injected via JS -->
+            </div>
+            <button onclick="showSecondLetter()" class="next-button fade-in-btn">
+                Continue the Story
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                    <polyline points="12 5 19 12 12 19"></polyline>
+                </svg>
+            </button>
+        </div>
+    </div>
+
+    <!-- SECOND LETTER SCREEN -->
+    <div id="letter-screen-2" class="hidden">
+        <button onclick="goBack('letter-screen-2', 'letter-screen')" class="back-btn">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="15 18 9 12 15 6"></polyline>
+            </svg>
+            Back
+        </button>
+        <div class="letter-container">
+            <div class="letter-header">
+                <h2 class="letter-greeting">Holding This Truth...</h2>
+            </div>
+            <div class="letter-content" id="letter-text-2">
+                <!-- Content will be injected via JS -->
+            </div>
+            <div id="final-cta" class="hidden" style="margin-top: 3rem; text-align: center;">
+                <p style="font-size: 1.2rem; color: var(--primary); margin-bottom: 1rem;">
+                    with this once again a very very happy birthday Kuldeep
+                </p>
+                <p style="font-size: 0.9rem; color: var(--text-muted); margin-bottom: 2rem; font-style: italic;">
+                    ( or emotional hona hai ? if yes click on the button given below and if not just close this abhii )
+                </p>
+                <button onclick="showGiftBox()" class="next-button cute-btn">
+                    open your gift baby
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- GIFT BOX SCREEN -->
+    <div id="gift-box-screen" class="hidden">
+        <button onclick="goBack('gift-box-screen', 'letter-screen-2')" class="back-btn">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="15 18 9 12 15 6"></polyline>
+            </svg>
+            Back
+        </button>
+        <div class="gift-box-container">
+            <div id="closed-box" class="box-visual" onclick="openBox()">
+                <div class="box-lid"></div>
+                <div class="box-body"></div>
+                <p class="box-hint">Click to open...</p>
+            </div>
+
+            <div id="opened-items" class="gift-items hidden">
+                <div class="letter-bundle" onclick="showStoryLetters()">
+                    <div class="item-stack">
+                        <div class="envelope">💌</div>
+                        <p>Letters</p>
+                    </div>
+                </div>
+                <div class="camera-item" onclick="showCamera()">
+                    <div class="item-stack">
+                        <div class="camera-icon">📸</div>
+                        <p>Camera</p>
+                    </div>
+                </div>
+                <div class="flower-item" onclick="showFlowers()">
+                    <div class="item-stack">
+                        <div class="flower-icon">💐</div>
+                        <p>Flowers</p>
+                    </div>
+                </div>
+                <div class="sheet-item" onclick="showBirthdaySheet()">
+                    <div class="item-stack">
+                        <div class="sheet-icon">📄</div>
+                        <p>A Sheet</p>
+                    </div>
+                </div>
+                <div class="video-item" onclick="showVideo()">
+                    <div class="item-stack">
+                        <div class="video-icon">🎬</div>
+                        <p>Our Video</p>
+                    </div>
+                </div>
+                <!-- NEW ITEMS -->
+                <div class="open-when-item" onclick="showOpenWhen()">
+                    <div class="item-stack">
+                        <div class="envelope-icon">📂</div>
+                        <p>Open When...</p>
+                    </div>
+                </div>
+                <div class="jar-item" onclick="showReasonsJar()">
+                    <div class="item-stack">
+                        <div class="jar-icon">🍯</div>
+                        <p>Our Reasons Jar</p>
+                    </div>
+                </div>
+                <div class="sky-item" onclick="showOurSky()">
+                    <div class="item-stack">
+                        <div class="sky-icon">🌌</div>
+                        <p>The Sky When We Met</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- STORY LETTERS OVERLAY -->
+    <div id="story-letters-overlay" class="modal-overlay hidden">
+        <button onclick="closeModal('story-letters-overlay')" class="close-modal">×</button>
+        <div class="letters-grid" id="letters-grid">
+            <!-- 5 letters will be here -->
+        </div>
+    </div>
+
+    <!-- SINGLE LETTER VIEW -->
+    <div id="single-letter-view" class="modal-overlay hidden">
+        <button onclick="closeModal('single-letter-view')" class="close-modal">×</button>
+        <div class="handwritten-letter-container">
+            <div class="handwritten-letter" id="letter-body">
+                <!-- Letter content here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- CAMERA MODAL -->
+    <div id="camera-modal" class="modal-overlay hidden">
+        <button onclick="closeModal('camera-modal')" class="close-modal">×</button>
+        <div class="camera-content">
+            <h2>Our Memories 📸</h2>
+            <div class="photo-gallery" id="photo-gallery">
+                <div class="gallery-item"><img src="IMAGES/photo1.png" alt="Memory 1"></div>
+                <div class="gallery-item"><img src="IMAGES/photo2.jpg" alt="Memory 2"></div>
+                <div class="gallery-item"><img src="IMAGES/photo3.png" alt="Memory 3"></div>
+                <div class="gallery-item"><img src="IMAGES/photo4.png" alt="Memory 4"></div>
+                <div class="gallery-item"><img src="IMAGES/photo5.jpg" alt="Memory 5"></div>
+                <div class="gallery-item"><img src="IMAGES/photo6.jpg" alt="Memory 6"></div>
+                <div class="gallery-item"><img src="IMAGES/photo7.png" alt="Memory 7"></div>
+                <div class="gallery-item"><img src="IMAGES/photo8.jpg" alt="Memory 8"></div>
+                <div class="gallery-item"><img src="IMAGES/photo9.jpg" alt="Memory 9"></div>
+                <div class="gallery-item"><img src="IMAGES/photo10.png" alt="Memory 10"></div>
+                <div class="gallery-item"><img src="IMAGES/photo11.jpg" alt="Memory 11"></div>
+                <div class="gallery-item"><img src="IMAGES/photo12.jpg" alt="Memory 12"></div>
+                <div class="gallery-item"><img src="IMAGES/photo13.png" alt="Memory 13"></div>
+                <div class="gallery-item"><img src="IMAGES/photo14.png" alt="Memory 14"></div>
+                <div class="gallery-item"><img src="IMAGES/photo15.jpg" alt="Memory 15"></div>
+                <div class="gallery-item"><img src="IMAGES/photo16.png" alt="Memory 16"></div>
+                <div class="gallery-item"><img src="IMAGES/photo17.png" alt="Memory 17"></div>
+                <div class="gallery-item"><img src="IMAGES/photo18.png" alt="Memory 18"></div>
+                <div class="gallery-item"><img src="IMAGES/photo19.png" alt="Memory 19"></div>
+                <div class="gallery-item"><img src="IMAGES/photo20.png" alt="Memory 20"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- FLOWERS MODAL -->
+    <div id="flowers-modal" class="modal-overlay hidden">
+        <button onclick="closeModal('flowers-modal')" class="close-modal">×</button>
+        <div class="flower-content">
+            <div class="floating-hearts">🌌✨💙🦋</div>
+            <img id="bouquet-img" src="" alt="Flowers" class="bouquet-img">
+            <h2 class="flower-text">pretty flowers for the most perfect boy</h2>
+        </div>
+    </div>
+
+    <!-- BIRTHDAY SHEET MODAL -->
+    <div id="birthday-sheet-modal" class="modal-overlay hidden">
+        <button onclick="closeModal('birthday-sheet-modal')" class="close-modal">×</button>
+        <div class="birthday-sheet">
+            <div class="sheet-decor top-left">🌊</div>
+            <div class="sheet-decor top-right">✨</div>
+            <div class="sheet-decor bottom-left">🧸</div>
+            <div class="sheet-decor bottom-right">💙</div>
+            <div class="sheet-decor middle-left" style="top: 50%; left: 0; opacity: 0.1;">🌙</div>
+            <div class="sheet-decor middle-right" style="top: 50%; right: 0; opacity: 0.1;">🦋</div>
+
+            <h1 class="sheet-title">HAPPY BIRTHDAY<br><span style="font-size: 0.5em; color: var(--primary);">To my
+                    Favorite Person</span></h1>
+
+            <div class="reasons-container">
+                <h3 style="font-size: 2rem; text-align: center; width: 100%; margin-bottom: 3rem;">Reasons why you are
+                    the bestest friend...</h3>
+                <ul id="reasons-list">
+                    <!-- Reasons will be injected here -->
+                </ul>
+            </div>
+
+            <div class="spotify-part">
+                <p style="font-family: 'Playfair Display'; font-style: italic; font-size: 1.5rem; margin-bottom: 2rem;">
+                    A song that reminds me of you...</p>
+                <div style="position: relative; display: inline-block;">
+                    <img id="spotify-img" src="" alt="Spotify Perfect" class="spotify-img">
+                    <div
+                        style="position: absolute; top: -10px; right: -10px; font-size: 3rem; animation: pulse 2s infinite;">
+                        💙</div>
+                </div>
+            </div>
+
+            <div class="cute-doodles" style="margin-top: 5rem; border-top: 1px dashed #ccc; padding-top: 2rem;">
+                <span>🌌</span><span>🦋</span><span>🌙</span><span>🐥</span><span>🌟</span><span>🍕</span><span>🎈</span><span>🎁</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- OPEN WHEN MODAL -->
+    <div id="open-when-modal" class="modal-overlay hidden">
+        <button onclick="closeModal('open-when-modal')" class="close-modal">×</button>
+        <div class="open-when-content">
+            <h2 class="modal-title">Open When... 💌</h2>
+            <div class="envelopes-grid">
+                <div class="envelope-card" onclick="openEnvelope('sad')">
+                    <div class="env-icon">💭</div>
+                    <p>...you're sad</p>
+                </div>
+                <div class="envelope-card" onclick="openEnvelope('angry')">
+                    <div class="env-icon">🔥</div>
+                    <p>...you're angry at me</p>
+                </div>
+                <div class="envelope-card" onclick="openEnvelope('missing')">
+                    <div class="env-icon">🫂</div>
+                    <p>...you're missing me</p>
+                </div>
+                <div class="envelope-card" onclick="openEnvelope('doubt')">
+                    <div class="env-icon">🛡️</div>
+                    <p>...you doubt yourself</p>
+                </div>
+                <div class="envelope-card" onclick="openEnvelope('happy')">
+                    <div class="env-icon">✨</div>
+                    <p>...you're happy</p>
+                </div>
+                <div class="envelope-card" onclick="openEnvelope('sleep')">
+                    <div class="env-icon">🌙</div>
+                    <p>...you can't sleep</p>
+                </div>
+                <div class="envelope-card" onclick="openEnvelope('laugh')">
+                    <div class="env-icon">🤣</div>
+                    <p>...you need a laugh</p>
+                </div>
+                <div class="envelope-card" onclick="openEnvelope('distance')">
+                    <div class="env-icon">⏰</div>
+                    <p>...we haven't talked</p>
+                </div>
+                <div class="envelope-card" onclick="openEnvelope('bored')">
+                    <div class="env-icon">🎮</div>
+                    <p>...you're bored</p>
+                </div>
+                <div class="envelope-card" onclick="openEnvelope('stressed')">
+                    <div class="env-icon">🌪️</div>
+                    <p>...you're stressed</p>
+                </div>
+                <div class="envelope-card" onclick="openEnvelope('unloved')">
+                    <div class="env-icon">🩹</div>
+                    <p>...you feel unloved</p>
+                </div>
+                <div class="envelope-card" onclick="openEnvelope('aboutMe')">
+                    <div class="env-icon">🤫</div>
+                    <p>...you're curious about me</p>
+                </div>
+                <div class="envelope-card" onclick="openEnvelope('proud')">
+                    <div class="env-icon">🏆</div>
+                    <p>...you're proud</p>
+                </div>
+                <div class="envelope-card" onclick="openEnvelope('rainy')">
+                    <div class="env-icon">☔</div>
+                    <p>...it's raining</p>
+                </div>
+                <div class="envelope-card" onclick="openEnvelope('morning')">
+                    <div class="env-icon">☀️</div>
+                    <p>...it's morning</p>
+                </div>
+                <div class="envelope-card" onclick="openEnvelope('lateNight')">
+                    <div class="env-icon">🌌</div>
+                    <p>...it's 2 AM</p>
+                </div>
+                <div class="envelope-card" onclick="openEnvelope('firstMeeting')">
+                    <div class="env-icon">🤝</div>
+                    <p>...thinking of our start</p>
+                </div>
+                <div class="envelope-card" onclick="openEnvelope('firstFight')">
+                    <div class="env-icon">🗯️</div>
+                    <p>...thinking of our fight</p>
+                </div>
+                <div class="envelope-card" onclick="openEnvelope('future')">
+                    <div class="env-icon">🚀</div>
+                    <p>...thinking of the future</p>
+                </div>
+                <div class="envelope-card" onclick="openEnvelope('travel')">
+                    <div class="env-icon">✈️</div>
+                    <p>...wanting to travel</p>
+                </div>
+                <div class="envelope-card" onclick="openEnvelope('coffee')">
+                    <div class="env-icon">☕</div>
+                    <p>...having coffee</p>
+                </div>
+                <div class="envelope-card" onclick="openEnvelope('song')">
+                    <div class="env-icon">🎧</div>
+                    <p>...hearing a song</p>
+                </div>
+                <div class="envelope-card" onclick="openEnvelope('sunset')">
+                    <div class="env-icon">🌇</div>
+                    <p>...watching the sunset</p>
+                </div>
+                <div class="envelope-card" onclick="openEnvelope('winter')">
+                    <div class="env-icon">❄️</div>
+                    <p>...it's winter</p>
+                </div>
+                <div class="envelope-card" onclick="openEnvelope('birthdayMe')">
+                    <div class="env-icon">🎂</div>
+                    <p>...it's my birthday</p>
+                </div>
+                <div class="envelope-card" onclick="openEnvelope('birthdayYou')">
+                    <div class="env-icon">🎈</div>
+                    <p>...it's your birthday</p>
+                </div>
+                <div class="envelope-card" onclick="openEnvelope('busy')">
+                    <div class="env-icon">💼</div>
+                    <p>...you're busy</p>
+                </div>
+                <div class="envelope-card" onclick="openEnvelope('tired')">
+                    <div class="env-icon">🔋</div>
+                    <p>...you're tired</p>
+                </div>
+                <div class="envelope-card" onclick="openEnvelope('newJob')">
+                    <div class="env-icon">💼</div>
+                    <p>...starting new things</p>
+                </div>
+                <div class="envelope-card" onclick="openEnvelope('exam')">
+                    <div class="env-icon">📚</div>
+                    <p>...you have an exam</p>
+                </div>
+                <div class="envelope-card" onclick="openEnvelope('result')">
+                    <div class="env-icon">🎉</div>
+                    <p>...got the results</p>
+                </div>
+                <div class="envelope-card" onclick="openEnvelope('sick')">
+                    <div class="env-icon">🤒</div>
+                    <p>...you're sick</p>
+                </div>
+                <div class="envelope-card" onclick="openEnvelope('lonely')">
+                    <div class="env-icon">🛶</div>
+                    <p>...you feel lonely</p>
+                </div>
+                <div class="envelope-card" onclick="openEnvelope('nostalgic')">
+                    <div class="env-icon">📼</div>
+                    <p>...feeling nostalgic</p>
+                </div>
+                <div class="envelope-card" onclick="openEnvelope('grateful')">
+                    <div class="env-icon">🙏</div>
+                    <p>...feeling grateful</p>
+                </div>
+                <div class="envelope-card" onclick="openEnvelope('overthinking')">
+                    <div class="env-icon">🧠</div>
+                    <p>...overthinking</p>
+                </div>
+                <div class="envelope-card" onclick="openEnvelope('insecure')">
+                    <div class="env-icon">🫂</div>
+                    <p>...feeling insecure</p>
+                </div>
+                <div class="envelope-card" onclick="openEnvelope('secret')">
+                    <div class="env-icon">🔑</div>
+                    <p>...want a secret?</p>
+                </div>
+                <div class="envelope-card" onclick="openEnvelope('hug')">
+                    <div class="env-icon">🧸</div>
+                    <p>...need a hug</p>
+                </div>
+                <div class="envelope-card" onclick="openEnvelope('kiss')">
+                    <div class="env-icon">💋</div>
+                    <p>...want a kiss</p>
+                </div>
+                <div class="envelope-card" onclick="openEnvelope('dance')">
+                    <div class="env-icon">💃</div>
+                    <p>...want to dance</p>
+                </div>
+                <div class="envelope-card" onclick="openEnvelope('movie')">
+                    <div class="env-icon">🍿</div>
+                    <p>...watching a movie</p>
+                </div>
+                <div class="envelope-card" onclick="openEnvelope('dream')">
+                    <div class="env-icon">💭</div>
+                    <p>...had a dream</p>
+                </div>
+                <div class="envelope-card" onclick="openEnvelope('star')">
+                    <div class="env-icon">🌠</div>
+                    <p>...see a star</p>
+                </div>
+                <div class="envelope-card" onclick="openEnvelope('pizza')">
+                    <div class="env-icon">🍕</div>
+                    <p>...eating food</p>
+                </div>
+                <div class="envelope-card" onclick="openEnvelope('walk')">
+                    <div class="env-icon">🚶</div>
+                    <p>...taking a walk</p>
+                </div>
+                <div class="envelope-card" onclick="openEnvelope('quiet')">
+                    <div class="env-icon">🤫</div>
+                    <p>...it's too quiet</p>
+                </div>
+                <div class="envelope-card" onclick="openEnvelope('loud')">
+                    <div class="env-icon">🔊</div>
+                    <p>...it's too loud</p>
+                </div>
+                <div class="envelope-card" onclick="openEnvelope('change')">
+                    <div class="env-icon">🔄</div>
+                    <p>...feeling change</p>
+                </div>
+                <div class="envelope-card" onclick="openEnvelope('forever')">
+                    <div class="env-icon">♾️</div>
+                    <p>...wanting forever</p>
+                </div>
+                <div class="envelope-card" onclick="openEnvelope('sunrise')">
+                    <div class="env-icon">🌅</div>
+                    <p>...it's sunrise</p>
+                </div>
+                <div class="envelope-card" onclick="openEnvelope('help')">
+                    <div class="env-icon">🆘</div>
+                    <p>...you need help</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- REASONS JAR MODAL -->
+    <div id="jar-modal" class="modal-overlay hidden">
+        <button onclick="closeModal('jar-modal')" class="close-modal">×</button>
+        <div class="jar-content-wrapper">
+            <div class="jar-visual-container">
+                <div class="jar">
+                    <div class="jar-lid"></div>
+                    <div class="jar-body">
+                        <div class="jar-label">365 Days of Us</div>
+                        <div class="jar-papers" id="jar-papers"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="reason-display" id="reason-display">
+                <p>Click the jar to pick a reason why you matter... 💙</p>
+            </div>
+            <button class="pick-reason-btn" onclick="pickReasonFromJar()">Reach into the Jar</button>
+        </div>
+    </div>
+
+    <!-- OUR SKY MODAL -->
+    <div id="sky-modal" class="modal-overlay hidden">
+        <button onclick="closeModal('sky-modal')" class="close-modal">×</button>
+        <div class="sky-content">
+            <div class="sky-canvas-container">
+                <div id="constellation-sky" class="constellation-sky">
+                    <div class="star-date">January 18, 2024</div>
+                    <div class="sky-message">The night we first met.</div>
+                </div>
+            </div>
+            <div class="sky-description">
+                <h2 style="font-family: 'Great Vibes', cursive; font-size: 3rem; color: var(--primary-light);">The Stars Witnessed Us</h2>
+                <p>On this night, the universe conspired to bring us together. These stars have been watching over us since that very first moment, and they continue to light our path forward.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- ENVELOPE CONTENT MODAL -->
+    <div id="envelope-content-modal" class="modal-overlay hidden" style="z-index: 6000;">
+        <button onclick="closeModal('envelope-content-modal')" class="close-modal">×</button>
+        <div class="handwritten-letter-container">
+            <div class="handwritten-letter" id="env-letter-body">
+                <!-- Content injected via JS -->
+            </div>
+        </div>
+    </div>
+
+    <!-- VIDEO SCREEN -->
+    <div id="video-screen" class="hidden">
+        <button onclick="goBack('video-screen', 'gift-box-screen')" class="back-btn">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="15 18 9 12 15 6"></polyline>
+            </svg>
+            Back
+        </button>
+        <div class="video-container">
+            <video id="birthday-video" controls>
+                <source src="IMAGES/video.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <div id="video-end-msg" class="hidden" style="margin-top: 3rem; text-align: center; animation: textSlowReveal 4s ease forwards;">
+                <h2 style="font-family: 'Great Vibes', cursive; font-size: 3.5rem; color: var(--primary-light);">You are my forever.</h2>
+                <p style="color: var(--text-muted); font-style: italic; margin-top: 1rem;">I love you, bestfriend. 💙</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- AUDIO TRACK -->
+    <audio id="bg-audio" loop preload="auto" crossorigin="anonymous">
+        <source src="https://cdn.pixabay.com/audio/2024/02/05/audio_24e35790ca.mp3" type="audio/mpeg">
+        <source src="https://cdn.pixabay.com/audio/2022/01/18/audio_d0a13f69d2.mp3" type="audio/mpeg">
+    </audio>
+
+    <!-- MUSIC TOGGLE -->
+    <button id="music-toggle" class="music-control" onclick="toggleMusic()">
+        <span class="icon">🎵</span>
+    </button>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
